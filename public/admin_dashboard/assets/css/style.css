@@ -1,0 +1,226 @@
+.f_left {
+    float: left;
+}
+
+.f_right_reso {
+    float: right;
+}
+
+@media(max-width:576px) {
+    .f_right_reso {
+        float: left;
+    }
+}
+
+.profile_img1 {
+    height: 92px;
+    border-radius: 50%;
+}
+
+.f_right_reso1 {
+    float: right;
+}
+
+@media(min-width:576px) {
+    .f_right_reso1 {
+        float: left;
+    }
+}
+
+.image-upload>input {
+    display: none;
+}
+
+.image-upload img {
+    width: 80px;
+    cursor: pointer;
+}
+
+.f_right {
+    float: right;
+}
+
+.add_btn {
+    border: 2px #0c8bdc solid !important;
+    color: #0c8bdc !important;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
+    color: white !important;
+}
+
+.add_btn:hover {
+    background-color: #0c8bdc !important;
+    color: white !important;
+}
+
+.profile_img {
+    height: 182px;
+    /* width: 250px; */
+    border-radius: 50%;
+}
+
+.text_color {
+    color: #0c8bdc;
+}
+
+.profile_img1 {
+    height: 92px;
+    border-radius: 50%;
+}
+
+.f_size {
+    font-size: 53px;
+}
+
+.dashboard_shadow {
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+
+@media (min-width:999px) {
+    .chat_section_margin {
+        margin-left: 500px;
+    }
+}
+
+/* JS ERROR CLASS  */
+.error {
+    color: #ff0101;
+}
+
+/* REMOVE MOBILE NUMBER ARROWS  */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* CATEGORY   SECTION  *********************   */
+
+@media (min-width:768px){
+    .categoryBtn{
+        margin-top: 32px !important;
+    }
+}
+
+@media(max-width:768px){
+    .categoryBtn{
+        margin-top: 20px !important;
+        /* float: right !important; */
+    }
+}
+
+
+#categoryBox {
+    max-height: 380px !important;
+    overflow: auto;
+}
+.line-clamp{
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+#categoryBox .table {
+    width: 100%; /* Ensure the table takes the full width of its container */
+}
+
+#categoryBox .table th,
+#categoryBox .table td {
+    padding: 0.70rem !important;
+}
+
+#categoryBox .table thead th {
+    position: sticky;
+    top: 0;
+    background-color: #f8f9fa; /* Optional: Set a background color for the sticky header */
+    z-index: 100; /* Optional: Set a higher z-index to ensure the header appears above other elements */
+}
+
+#categoryBox .table tbody td {
+    /* Optional: Add additional styling for tbody cells */
+}
+
+
+/* product button active  */
+.activebtn{
+    color: #ffffff !important;
+    background-color: #0c8bdc !important;
+}
+
+
+.pagination .page-item.disabled,.pagination .page-item.active{
+    pointer-events: none;
+}
+
+.noDatafoundBox{
+    width: 100%;
+    text-align: center;
+    /* display: flex; */
+    /* justify-content: center;
+    align-items: center; */
+}
+
+
+#spinner {
+    z-index: 9999;
+    left: 80px;
+
+}
+
+
+/* DASHBOARD PROFILE ************ */
+.admin-profile label, #EditProfile .text-danger {
+    float: left;
+}
+ .admin-profile .card {
+    border: 1px solid rgb(0, 140, 255);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 20px;
+}
+
+.admin-profile .image-box {
+    height: 200px;
+    width: 200px;
+    border: 3px solid rgb(0, 140, 255);
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+.admin-profile .box-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.admin-profile .info {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.admin-profile .info h6 {
+    font-size: 17px;
+    margin-right: 10px;
+}
+
+.admin-profile .info span {
+    font-size: 16px;
+}
+
+.admin-profile .p-image {
+    position: absolute;
+    top: 196px;
+}
+
+@media screen and (max-width: 700px) {
+    .admin-profile .info {
+        display: block;
+    }
+}
+
+
