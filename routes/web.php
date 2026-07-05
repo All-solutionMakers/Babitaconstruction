@@ -13,6 +13,7 @@ use App\Http\Controllers\admin\salevehicleListController;
 
 use App\Http\Controllers\userModule\aboutController;
 use App\Http\Controllers\userModule\home_controller;
+use App\Http\Controllers\userModule\dataDeletionController;
 
 use App\Http\Controllers\userModule\contactController;
 use App\Http\Controllers\userModule\projectController;
@@ -161,5 +162,12 @@ Route::controller(purchaseVehicleController::class)->group(
     function () {
         Route::get('purchase-vehicle-registration', 'view')->name('purchase.vehicleregistration.form');
         Route::post('purchase-vehicle-registration', 'insert')->name('purchase.vehicleregistration.insert');
+    }
+);
+
+Route::controller(dataDeletionController::class)->group(
+    function () {
+        Route::get('data-deletion-request', 'view')->name('data.deletion.request.view');
+        Route::post('data-deletion-request', 'insert')->name('data.deletion.request.insert');
     }
 );
