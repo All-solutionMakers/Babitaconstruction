@@ -24,7 +24,7 @@ class login_Controller extends Controller
     {
         // dd($login);
         $login->validate([
-            'mobile_number' => 'required',
+            'login_id' => 'required',
             'password' => [
                 'required',
                 'string',
@@ -38,8 +38,11 @@ class login_Controller extends Controller
         ]);
         try {
             //code...
-            // dd($login->mobile_number);
-            $user = DB::table('admins')->where('mobile_no', $login->mobile_number)->first();
+            // dd($login->login_id);
+            $user = DB::table('admins')
+                ->where('mobile_no', $login->login_id)
+                ->orWhere('email', $login->login_id)
+                ->first();
 
             // dd($user);
             if ($user != null) {

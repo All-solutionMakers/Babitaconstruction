@@ -170,4 +170,4 @@ Route::controller(dataDeletionController::class)->group(
         Route::get('data-deletion-request', 'view')->name('data.deletion.request.view');
         Route::post('data-deletion-request', 'insert')->name('data.deletion.request.insert');
     }
-);
+); 
