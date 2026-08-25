@@ -88,39 +88,334 @@
 
 
     <!-- About Start -->
-    <div class="container-xxl py-5">
+    <style>
+        .about-v2 {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-v2::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(2, 36, 91, 0.06) 1.5px, transparent 1.5px);
+            background-size: 22px 22px;
+            pointer-events: none;
+        }
+
+        .about-v2-media {
+            position: relative;
+            z-index: 1;
+            padding: 14px 34px 34px 0;
+        }
+
+        .about-v2-media__frame {
+            position: relative;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(2, 36, 91, 0.25);
+        }
+
+        .about-v2-media__frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .about-v2-media__frame:hover img {
+            transform: scale(1.08);
+        }
+
+        .about-v2-media__primary {
+            height: 340px;
+        }
+
+        .about-v2-media__secondary {
+            position: absolute;
+            right: -34px;
+            bottom: -34px;
+            width: 58%;
+            height: 190px;
+            border: 6px solid #fff;
+        }
+
+        .about-v2-stripe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 56px;
+            height: 56px;
+            background: repeating-linear-gradient(45deg, var(--primary) 0, var(--primary) 9px, var(--dark) 9px, var(--dark) 18px);
+            border-radius: 14px 0 14px 0;
+            z-index: 2;
+        }
+
+        .about-v2-experience {
+            position: absolute;
+            left: -10px;
+            top: 30px;
+            z-index: 2;
+            background: var(--dark);
+            color: #fff;
+            border-radius: 12px;
+            padding: 18px 22px;
+            box-shadow: 0 15px 35px rgba(2, 36, 91, 0.35);
+            text-align: center;
+            min-width: 108px;
+        }
+
+        .about-v2-experience h2 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 0;
+            line-height: 1;
+        }
+
+        .about-v2-experience span {
+            display: block;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+        }
+
+        .about-v2-check-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px 18px;
+        }
+
+        .about-v2-check-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 10px 12px;
+            transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .about-v2-check-item:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(2, 36, 91, 0.08);
+        }
+
+        .about-v2-check-item i {
+            flex-shrink: 0;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: rgba(255, 94, 20, 0.12);
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+        }
+
+        .about-v2-check-item span {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #3a3a3a;
+        }
+
+        .about-v2-pillars {
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-v2-pillar {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 260px;
+            display: flex;
+            align-items: flex-end;
+            box-shadow: 0 15px 30px rgba(2, 36, 91, 0.12);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .about-v2-pillar:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 45px rgba(2, 36, 91, 0.25);
+        }
+
+        .about-v2-pillar img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .about-v2-pillar:hover img {
+            transform: scale(1.1);
+        }
+
+        .about-v2-pillar::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(2, 12, 30, 0.92) 0%, rgba(2, 12, 30, 0.35) 55%, rgba(2, 12, 30, 0.05) 100%);
+        }
+
+        .about-v2-pillar__body {
+            position: relative;
+            z-index: 1;
+            padding: 22px;
+            color: #fff;
+            width: 100%;
+        }
+
+        .about-v2-pillar__icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 10px;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 16px rgba(255, 94, 20, 0.4);
+        }
+
+        .about-v2-pillar__body h5 {
+            color: #fff;
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+
+        .about-v2-pillar__body p {
+            font-size: 0.85rem;
+            color: #d8dce6;
+            margin-bottom: 0;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 991px) {
+            .about-v2-media {
+                padding: 14px 14px 60px 0;
+                margin-bottom: 2rem;
+            }
+
+            .about-v2-experience {
+                left: 14px;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .about-v2-check-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-v2-media__primary {
+                height: 260px;
+            }
+
+            .about-v2-media__secondary {
+                height: 150px;
+            }
+        }
+    </style>
+
+    <div class="container-xxl py-5 about-v2">
         <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-6">
-                    <div class="row gx-3 h-100">
-                        <div class="col-6 align-self-start wow fadeInUp" data-wow-delay="0.1s">
-                            <img class="img-fluid" src="img/400x600 slider 1.jpg">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="about-v2-media">
+                        <div class="about-v2-media__frame about-v2-media__primary">
+                            <div class="about-v2-stripe"></div>
+                            <img src="img/400x600 slider 1.jpg" alt="Babita Construction site engineer">
                         </div>
-                        <div class="col-6 align-self-end wow fadeInDown" data-wow-delay="0.1s">
-                            <img class="img-fluid" src="img/400x600 slider 2.jpg">
+                        <div class="about-v2-media__frame about-v2-media__secondary">
+                            <img src="img/400x600 slider 2.jpg" alt="Babita Construction site supervisor">
+                        </div>
+                        <div class="about-v2-experience">
+                            <h2 data-toggle="counter-up">10</h2>
+                            <span>Years of<br>Experience</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.3s">
                     <p class="fw-medium text-uppercase text-primary mb-2">About Us</p>
-                    <h1 class="display-5 mb-4">About <br>Babita Construction</h1>
-                    <p class="mb-4">Babita Construction is a premier name in the mining and construction industry,
-                        renowned for its commitment to excellence, innovation, and sustainability. With decades of
-                        experience, we have built a robust portfolio of successful projects, from massive infrastructure
-                        developments to intricate mining operations. Our expertise spans across various domains, ensuring
-                        that we deliver high-quality results that meet the evolving needs of our clients.</p>
-                    <div class="d-flex align-items-center mb-4">
-                        <div class="flex-shrink-0 bg-primary p-4">
-                            <h1 class="display-2">10</h1>
-                            <h5 class="text-white">Years of</h5>
-                            <h5 class="text-white">Experience</h5>
+                    <h1 class="display-5 mb-4">Building Excellence in <br>Construction &amp; Transportation</h1>
+                    <p class="mb-4">Babita Construction is a premier name in the construction, mining, and
+                        transportation industry, renowned for its commitment to excellence, innovation, and
+                        sustainability. With over a decade of experience, we have built a robust portfolio of
+                        successful projects, from large-scale infrastructure development to reliable fleet and
+                        logistics operations, delivering high-quality results that meet the evolving needs of our
+                        clients.</p>
+                    <div class="about-v2-check-grid mb-4">
+                        <div class="about-v2-check-item">
+                            <i class="fa fa-check"></i>
+                            <span>Commercial &amp; Residential Construction</span>
                         </div>
-                        <div class="ms-4">
-                            <p><i class="fa fa-check text-primary me-2"></i>Commercial & Residential Construction</p>
-                            <p><i class="fa fa-check text-primary me-2"></i>Mining Operations</p>
-                            <p><i class="fa fa-check text-primary me-2"></i>Exploration and Drilling</p>
-                            <p><i class="fa fa-check text-primary me-2"></i>Fleet Management</p>
-                            <p class="mb-0"><i class="fa fa-check text-primary me-2"></i>Vehicle & Logistics</p>
+                        <div class="about-v2-check-item">
+                            <i class="fa fa-check"></i>
+                            <span>Mining Operations</span>
+                        </div>
+                        <div class="about-v2-check-item">
+                            <i class="fa fa-check"></i>
+                            <span>Exploration &amp; Drilling</span>
+                        </div>
+                        <div class="about-v2-check-item">
+                            <i class="fa fa-check"></i>
+                            <span>Fleet Management</span>
+                        </div>
+                        <div class="about-v2-check-item">
+                            <i class="fa fa-check"></i>
+                            <span>Vehicle &amp; Logistics</span>
+                        </div>
+                        <div class="about-v2-check-item">
+                            <i class="fa fa-check"></i>
+                            <span>Infrastructure Development</span>
+                        </div>
+                    </div>
+                    <a href="{{ route('about.view') }}" class="btn btn-primary py-3 px-5">Learn More <i
+                            class="fa fa-arrow-right ms-2"></i></a>
+                </div>
+            </div>
+
+            <div class="row g-4 mt-3 about-v2-pillars">
+                <div class="col-md-4 col-12 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="about-v2-pillar">
+                        <img src="img/carousel-2.jpg" alt="Construction services">
+                        <div class="about-v2-pillar__body">
+                            <div class="about-v2-pillar__icon">
+                                <i class="fa fa-hard-hat text-white"></i>
+                            </div>
+                            <h5>Construction</h5>
+                            <p>End-to-end commercial, residential &amp; infrastructure builds delivered on time.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-12 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="about-v2-pillar">
+                        <img src="img/Mining.jpg" alt="Mining operations">
+                        <div class="about-v2-pillar__body">
+                            <div class="about-v2-pillar__icon">
+                                <i class="fa fa-mountain text-white"></i>
+                            </div>
+                            <h5>Mining</h5>
+                            <p>Safe, efficient mining &amp; exploration operations backed by modern equipment.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-12 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="about-v2-pillar">
+                        <img src="img/Fleet Management.jpg" alt="Transportation and fleet management">
+                        <div class="about-v2-pillar__body">
+                            <div class="about-v2-pillar__icon">
+                                <i class="fa fa-truck text-white"></i>
+                            </div>
+                            <h5>Transportation &amp; Fleet</h5>
+                            <p>Reliable vehicle fleet &amp; logistics management for seamless operations.</p>
                         </div>
                     </div>
                 </div>

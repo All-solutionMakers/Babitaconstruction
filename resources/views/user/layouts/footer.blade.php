@@ -31,6 +31,7 @@
                 <a class="btn btn-link" href="">Our Services</a>
                 <a class="btn btn-link" href="">Terms & Condition</a>
                 <a class="btn btn-link" href="">Support</a>
+                <a class="btn btn-link" href="{{ route('data.deletion.request.view') }}">Delete My Data</a>
             </div>
             <div class="col-lg-3 col-md-6 col-6">
                 <h5 class="text-white mb-4">Business Hours</h5>
