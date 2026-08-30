@@ -31,6 +31,9 @@
     <!-- Template Stylesheet -->
     <link href="{{ url('css/style.css') }}" rel="stylesheet">
 
+    <!-- Modern UI (navbar + hero slider) -->
+    <link href="{{ url('css/modern-ui.css') }}" rel="stylesheet">
+
      {{-- SWEET ALERT CDN LINK  --}}
      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
@@ -45,21 +48,21 @@
 
 
     <!-- Topbar Start -->
-    <div class="container-fluid bg-dark px-0">
+    <div class="container-fluid topbar-modern px-0">
         <div class="row g-0 d-none d-lg-flex">
             <div class="col-lg-6 ps-5 text-start">
-                <div class="h-100 d-inline-flex align-items-center text-white">
-                    <span>Follow Us:</span>
-                    <a class="btn btn-link text-light" href=""><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-link text-light" href=""><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-link text-light" href=""><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-link text-light" href=""><i class="fab fa-instagram"></i></a>
+                <div class="h-100 d-inline-flex align-items-center py-2 topbar-social">
+                    <span class="fw-semi-bold">Follow Us:</span>
+                    <a class="btn btn-link" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-link" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-link" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-link" href="#"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
             <div class="col-lg-6 text-end">
                 <div class="h-100 topbar-right d-inline-flex align-items-center text-white py-2 px-5">
-                    <span class="fs-5 fw-bold me-2"><i class="fa fa-phone-alt me-2"></i>Call Us:</span>
-                    <span class="fs-5 fw-bold">+91 9040339519</span>
+                    <span class="fw-bold me-3"><i class="fa fa-phone-alt me-2"></i>+91 9040339519</span>
+                    <span class="fw-bold"><i class="fa fa-envelope me-2"></i>babitaconstruction@gmail.com</span>
                 </div>
             </div>
         </div>
@@ -68,82 +71,54 @@
 
 
     <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-0 px-lg-5 px-3">
-        <a href="{{ url('index.view') }}" class="navbar-brand p-0">
-            <img src="img/logo.png" class="img-fluid" alt="">
+    <nav class="navbar navbar-modern navbar-expand-lg navbar-light sticky-top py-0 px-lg-5 px-3">
+        <a href="{{ route('index.view') }}" class="navbar-brand p-0">
+            <img src="{{ url('img/logo.png') }}" class="img-fluid" alt="Babita Construction">
         </a>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-            {{-- <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="{{ route('index.view') }}" class="nav-item nav-link {{ request()->is('/') ? 'active' : '' }}">Home</a>
-            <a href="{{ route('about.view') }}" class="nav-item nav-link {{ request()->is('about') ? 'active' : '' }}">About</a>
-            <div class="nav-item dropdown">
-                <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
-                <div class="dropdown-menu bg-light m-0">
-                    <a href="{{route('construction.view')}}" class="dropdown-item">Construction</a>
-                    <a href="{{route('transporatation.view')}}" class="dropdown-item">Transporatation</a>
-                    <a href="{{route('minning.view')}}" class="dropdown-item">Minning</a>
+            <div class="navbar-nav ms-auto p-4 p-lg-0 align-items-lg-center">
+                <a href="{{ route('index.view') }}"
+                    class="nav-item nav-link {{ request()->is('/') ? 'active' : '' }}">Home</a>
+                <a href="{{ route('about.view') }}"
+                    class="nav-item nav-link {{ request()->is('about') ? 'active' : '' }}">About</a>
+
+                <div class="nav-item dropdown">
+                    <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="{{ route('construction.view') }}" class="dropdown-item">Construction</a>
+                        <a href="{{ route('transporatation.view') }}" class="dropdown-item">Transportation</a>
+                        <a href="{{ route('minning.view') }}" class="dropdown-item">Mining</a>
+                    </div>
+                </div>
+
+                <a href="{{ route('project.view') }}"
+                    class="nav-item nav-link {{ request()->is('project') ? 'active' : '' }}">Projects</a>
+                <a href="{{ route('contact.view') }}"
+                    class="nav-item nav-link {{ request()->is('contact') ? 'active' : '' }}">Contact</a>
+
+                <div class="nav-item dropdown">
+                    <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Register
+                        Vehicle</a>
+                    <div class="dropdown-menu">
+                        <a href="{{ route('purchase.vehicleregistration.form') }}" class="dropdown-item">Apply for Vehicle
+                            Purchase</a>
+                        <a href="{{ route('defaulter.vehicleregistration..sale.form') }}" class="dropdown-item">Sale
+                            Defaulter Vehicle</a>
+                        <a href="{{ route('vehicleregistration.form') }}" class="dropdown-item">Register for Vehicle
+                            Lease</a>
+                    </div>
+                </div>
+
+                <div class="nav-item dropdown ms-lg-3">
+                    <a href="javascript:void(0)" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">Login</a>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        <a href="{{ route('login.view') }}" class="dropdown-item">Admin Login</a>
+                    </div>
                 </div>
             </div>
-            <a href="{{route('project.view')}}" class="nav-item nav-link">Projects</a>
-            <a href="{{route('contact.view')}}" class="nav-item nav-link">Contact</a>
-
-            <div class="nav-item dropdown d-flex align-items-center">
-                <a href="javascript:void(0)" class="btn btn-primary px-3 dropdown-toggle" data-bs-toggle="dropdown">Login</a>
-
-                <div class="dropdown-menu bg-light  dropdown-menu-start ">
-                    <a href="{{route('construction.view')}}" class="dropdown-item">Admin Login</a>
-                </div>
-            </div>
-
-        </div> --}}
-
-
-        <div class="navbar-nav ms-auto p-4 p-lg-0">
-            <a href="{{ route('index.view') }}" class="nav-item nav-link {{ request()->is('/') ? 'active' : '' }}">Home</a>
-            <a href="{{ route('about.view') }}" class="nav-item nav-link {{ request()->is('about') ? 'active' : '' }}">About</a>
-
-            <div class="nav-item dropdown">
-                <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
-                <div class="dropdown-menu bg-light m-0">
-                    <a href="{{route('construction.view')}}" class="dropdown-item">Construction</a>
-                    <a href="{{route('transporatation.view')}}" class="dropdown-item">Transporatation</a>
-                    <a href="{{route('minning.view')}}" class="dropdown-item">Minning</a>
-                </div>
-            </div>
-
-            <a href="{{route('project.view')}}" class="nav-item nav-link">Projects</a>
-            <a href="{{route('contact.view')}}" class="nav-item nav-link">Contact</a>
-
-            {{-- <a href="{{route('')}}" class="nav-item nav-link">Find Your Vehicle</a> --}}
-
-
-
-            <div class="nav-item dropdown">
-                <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Register Vehicle</a>
-                <div class="dropdown-menu bg-light m-0">
-                    <a href="{{route('purchase.vehicleregistration.form')}}" class="dropdown-item">Apply for Vehicle Purchase</a>
-                    <a href="{{route('defaulter.vehicleregistration..sale.form')}}" class="dropdown-item">Sale Defaulter Vehicle</a>
-                    <a href="{{route('vehicleregistration.form')}}" class="dropdown-item">Register for Vehicle Lease</a>
-                </div>
-            </div>
-
-
-
-            <!-- Corrected "Login" dropdown -->
-            <div class="nav-item dropdown d-flex align-items-center">
-                <a href="javascript:void(0)" class="btn btn-primary px-3 dropdown-toggle" data-bs-toggle="dropdown">Login</a>
-                <div class="dropdown-menu bg-light dropdown-menu-start m-0">
-                    <a href="{{route('login.view')}}" class="dropdown-item">Admin Login</a>
-                </div>
-            </div>
-        </div>
-
-
-
-
         </div>
     </nav>
     <!-- Navbar End -->
