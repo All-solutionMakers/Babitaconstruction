@@ -1,16 +1,17 @@
 @extends('user.layouts.main')
 @section('main_content')
 <!-- Page Header Start -->
-<div class="container-fluid page-header py-5 wow fadeIn" data-wow-delay="0.1s">
-    <div class="container py-5">
-        <h1 class="display-3 text-white animated slideInRight">sale Your Defaulter Vehicle</h1>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb animated slideInRight mb-0">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item"><a href="#">Sale vehicle Form</a></li>
-                {{-- <li class="breadcrumb-item active" aria-current="page">About Us</li> --}}
-            </ol>
-        </nav>
+@include('user.layouts.partials.service-page-styles')
+
+<div class="pg-hero wow fadeIn" data-wow-delay="0.1s" style="background-image:url('{{ url('img/carousel-2.jpg') }}');">
+    <div class="container pg-hero__inner">
+        <span class="pg-hero__kicker">Sale Vehicle</span>
+        <h1>sale Your Defaulter Vehicle</h1>
+        <div class="pg-hero__crumb">
+            <a href="{{ route('index.view') }}">Home</a>
+            <i class="fa fa-chevron-right sep"></i>
+            <span class="current">Sale vehicle Form</span>
+        </div>
     </div>
 </div>
 <!-- Page Header End -->
@@ -26,8 +27,13 @@
 </script>
 
 <!-- About Start -->
-<div class="container-xxl py-5">
+<div class="vform">
     <div class="container">
+        <div class="vform-card">
+            <div class="vform-head">
+                <span class="kicker">Sale Vehicle</span>
+                <h2>sale Your Defaulter Vehicle</h2>
+            </div>
         <form action="{{old('default.vehicleregistration.insert')}}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="row">
@@ -253,6 +259,7 @@
                 </div>
             </div>
         </form>
+        </div>
     </div>
 </div>
 <!-- About End -->
